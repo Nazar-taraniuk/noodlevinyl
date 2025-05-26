@@ -1,0 +1,62 @@
+[
+{
+    "model": "main.vinyl",
+    "pk": 1,
+    "fields": {
+        "title": "by the way",
+        "artist": 1,
+        "genre": "punk",
+        "release_year": 2006,
+        "price": "23999.00",
+        "in_stock": true,
+        "created_at": "2025-05-08T17:59:03Z",
+        "image": "vinyl_images/by_the_way.jpg",
+        "description": ""
+    }
+},
+{
+    "model": "main.vinyl",
+    "pk": 3,
+    "fields": {
+        "title": "californication",
+        "artist": 1,
+        "genre": "punk",
+        "release_year": 1999,
+        "price": "3212.00",
+        "in_stock": true,
+        "created_at": "2025-05-15T18:22:39Z",
+        "image": "vinyl_images/californmication_D0uwzWS.jpg",
+        "description": ""
+    }
+},
+{
+    "model": "main.vinyl",
+    "pk": 4,
+    "fields": {
+        "title": "unlimited love",
+        "artist": 1,
+        "genre": "love punk",
+        "release_year": 2021,
+        "price": "5153.00",
+        "in_stock": true,
+        "created_at": "2025-05-15T18:27:51Z",
+        "image": "vinyl_images/unlimited_love.jpg",
+        "description": ""
+    }
+},
+{
+    "model": "main.vinyl",
+    "pk": 6,
+    "fields": {
+        "title": "Frankenstein Girls Will Seem Strangely Sexy",
+        "artist": 2,
+        "genre": "Punk rock, Industrial music, Hip-hop",
+        "release_year": 2000,
+        "price": "3000.00",
+        "in_stock": true,
+        "created_at": "2025-05-15T19:12:41Z",
+        "image": "vinyl_images/Frankenstein_Girls_Will_Seem_Strangely_Sexy.jpg",
+        "description": "Frankenstein Girls Will Seem Strangely Sexy is the second studio album by New York City band Mindless Self Indulgence released in 2000. The album is the follow-up to the album Tight."
+    }
+}
+]

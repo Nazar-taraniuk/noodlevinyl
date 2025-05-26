@@ -1,0 +1,19 @@
+{% block cart_recom %}
+<div class="col-md-4 mb-4">
+    <a href="{% url 'vinyl_detail' vinyl.pk %}" class="card-link text-decoration-none text-light">
+        <div class="card h-100">
+            <div class="image-wrapper position-relative">
+                <img src="{{ vinyl.image.url }}" alt="{{ vinyl.title }}" class="img-fluid main-img">
+                {% if vinyl.hover_image %}
+                    <img src="{{ vinyl.hover_image.url }}" alt="{{ vinyl.title }}" class="img-fluid hover-img position-absolute top-0 start-0">
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ vinyl.title }}</h5>
+                <p class="card-text">{{ vinyl.artist.name }}</p>
+                <p class="card-text"><strong>Ціна:</strong> {{ vinyl.price }} грн.</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endblock %}

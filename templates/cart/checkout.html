@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4">Оформлення замовлення</h2>
+  <form method="post" id="checkout-form">
+    {% csrf_token %}
+
+    <div class="row mb-3">
+      <div class="col">
+        <label for="first_name" class="form-label">Ім'я</label>
+        <input type="text" class="form-control" name="first_name" required>
+      </div>
+      <div class="col">
+        <label for="last_name" class="form-label">Прізвище</label>
+        <input type="text" class="form-control" name="last_name" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">Телефон</label>
+      <input type="text" class="form-control" name="phone" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="promo_code" class="form-label">Промокод</label>
+      <input type="text" class="form-control" name="promo_code">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Спосіб доставки</label>
+      <select class="form-select" name="delivery_method" id="delivery_method">
+        <option value="ukr_poshta">Укрпошта</option>
+        <option value="nova_poshta">Нова Пошта</option>
+      </select>
+    </div>
+
+    <div id="ukr-poshta-fields">
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">Місто</label>
+          <input type="text" class="form-control" name="city_ukrposhta">
+        </div>
+        <div class="col">
+          <label class="form-label">Вулиця</label>
+          <input type="text" class="form-control" name="street_ukrposhta">
+        </div>
+        <div class="col">
+          <label class="form-label">Поштовий індекс</label>
+          <input type="text" class="form-control" name="postal_code">
+        </div>
+      </div>
+    </div>
+
+    <div id="nova-poshta-fields" style="display: none">
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">Місто</label>
+          <input type="text" class="form-control" name="city_nova_poshta">
+        </div>
+        <div class="col">
+          <label class="form-label">Вулиця</label>
+          <input type="text" class="form-control" name="street_nova_poshta">
+        </div>
+        <div class="col">
+          <label class="form-label">Відділення</label>
+          <input type="text" class="form-control" name="nova_poshta_branch">
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label">Оплата</label>
+      <select class="form-select" name="payment_method" id="payment_method">
+        <option value="card">Картка</option>
+        <option value="apple_pay">Apple Pay</option>
+        <option value="google_pay">Google Pay</option>
+      </select>
+    </div>
+
+    <div id="card-fields" style="display: none;">
+      <div class="mb-3">
+        <label class="form-label">Номер картки</label>
+        <input type="text" class="form-control" id="card_number" name="card_number" maxlength="19" placeholder="0000 0000 0000 0000">
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">Термін дії</label>
+          <input type="text" class="form-control" id="expiry_date" name="expiry_date" maxlength="5" placeholder="MM/YY">
+        </div>
+        <div class="col">
+          <label class="form-label">CVV</label>
+          <input type="text" class="form-control" id="cvv" name="cvv" maxlength="3" placeholder="123">
+        </div>
+      </div>
+    </div>
+
+    <h5>Разом до сплати: <strong>{{ total_price }} грн</strong></h5>
+
+    <button type="submit" class="btn btn-primary">Підтвердити замовлення</button>
+  </form>
+</div>
+
+<script>
+  const paymentSelect = document.querySelector('select[name="payment_method"]');
+  const cardFields = document.getElementById('card-fields');
+
+  paymentSelect.addEventListener('change', function () {
+    cardFields.style.display = this.value === 'card' ? 'block' : 'none';
+  });
+
+  // Форматування номера картки (додає пробіл кожні 4 цифри)
+  const cardInput = document.getElementById('card_number');
+  cardInput.addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '').slice(0, 16); // тільки цифри, максимум 16
+    let formatted = value.match(/.{1,4}/g);
+    e.target.value = formatted ? formatted.join(' ') : '';
+  });
+
+  // Форматування терміну дії (MM/YY)
+  const expiryInput = document.getElementById('expiry_date');
+  expiryInput.addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '').slice(0, 4); // тільки цифри, максимум 4
+    if (value.length >= 3) {
+      e.target.value = value.slice(0, 2) + '/' + value.slice(2);
+    } else {
+      e.target.value = value;
+    }
+  });
+
+  // Форматування CVV (лише цифри, максимум 3)
+  const cvvInput = document.getElementById('cvv');
+  cvvInput.addEventListener('input', function (e) {
+    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+  });
+</script>
+{% endblock %}

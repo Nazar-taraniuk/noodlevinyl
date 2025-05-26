@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}noodlevinyl{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'font/bootstrap-icons.css' %}">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-maroon shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-4" href="{% url 'home' %}">noodlevinyl</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Головна</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'create_vinyl_order' %}">Замовити</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'my_orders' %}">Мої замовлення</a></li>
+                {% endif %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="artistDropdown" role="button" data-bs-toggle="dropdown">
+                        Виконавці
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="artistDropdown">
+                        {% for artist in artists %}
+                            <li><a class="dropdown-item" href="{% url 'artist_detail' artist.pk %}">{{ artist.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'cart' %}">🛒</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'orders' %}">Історія</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-link nav-link">Вийти ({{ user.username }})</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Вхід</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Реєстрація</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container mt-5 content">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="bg-maroon text-white py-4 mt-5 border-top border-light text-center">
+    <p class="mb-1">© 2025 noodlevinyl</p>
+    <p class="small">Музика, яку можна відчути руками.</p>
+</footer>
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

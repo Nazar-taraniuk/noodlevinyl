@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Історія замовлень{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Історія замовлень</h2>
+    {% if orders %}
+        <div class="row row-cols-1 g-4">
+            {% for order in orders %}
+                <div class="col">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Замовлення №{{ order.id }}</h5>
+                            <p class="mb-1"><strong>Ім'я:</strong> {{ order.first_name }} {{ order.last_name }}</p>
+                            <p class="mb-1"><strong>Телефон:</strong> {{ order.phone }}</p>
+                            <p class="mb-1"><strong>Сума:</strong> {{ order.total_price }} грн</p>
+                            <p class="mb-1"><strong>Спосіб оплати:</strong>
+                                {% if order.payment_method == 'card' %}Картка{% elif order.payment_method == 'apple_pay' %}Apple Pay{% elif order.payment_method == 'google_pay' %}Google Pay{% else %}{{ order.payment_method }}{% endif %}
+                            </p>
+                            <p class="mb-1"><strong>Спосіб доставки:</strong> {{ order.delivery_method }}</p>
+                            <p class="mb-2"><strong>Дата:</strong> {{ order.created_at|date:"d.m.Y H:i" }}</p>
+                            <details>
+                                <summary class="mb-2 text-primary">Деталі замовлення</summary>
+                                <ul class="list-group list-group-flush">
+                                    {% for item in order.products_json|safe|json_script:"products" %}
+                                    {% endfor %}
+                                    {% for vinyl in order.products_json|safe|json_script:"vinyls" %}
+                                    {% endfor %}
+                                    {% for product in order.products_json|default_if_none:"[]"|json_script:"order_products" %}
+                                    {% endfor %}
+                                    {% for product in order.products_json|default_if_none:"[]"|json_script:"products" %}
+                                    {% endfor %}
+                                </ul>
+                                <script>
+                                    const products = JSON.parse(document.getElementById('order_products').textContent);
+                                    const list = document.currentScript.previousElementSibling;
+                                    products.forEach(p => {
+                                        const li = document.createElement('li');
+                                        li.className = "list-group-item";
+                                        li.innerText = `${p.vinyl} ×${p.quantity} — ${p.price} грн`;
+                                        list.appendChild(li);
+                                    });
+                                </script>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center">У вас ще немає замовлень.</p>
+    {% endif %}
+</div>
+{% endblock %}

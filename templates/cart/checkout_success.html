@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <h1 class="display-4 mb-4">Дякуємо за ваше замовлення!</h1>
+    <p class="lead">Ваше замовлення було успішно оформлено. Ми надішлемо вам сповіщення, коли платівки буде відправлено.</p>
+    <a href="/" class="btn btn-primary mt-4">Повернутись на головну</a>
+    <a href="{% url 'orders' %}" class="btn btn-outline-secondary mt-4 ms-2">Переглянути історію замовлень</a>
+</div>
+{% endblock %}

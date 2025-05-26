@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Кошик{% endblock %}
+{% block content %}
+<div class="container mb-5">
+    <h2 class="mb-4 text-light">Мій кошик</h2>
+
+    {% if items %}
+        {% for item in items %}
+        <div class="d-flex align-items-center justify-content-between bg-dark rounded p-3 mb-3 shadow-sm">
+            <div class="d-flex align-items-center">
+                <img src="{{ item.vinyl.image.url }}" alt="{{ item.vinyl.title }}" class="rounded me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                <div>
+                    <h5 class="mb-1 text-light">{{ item.vinyl.title }}</h5>
+                    <p class="mb-1 text-muted">{{ item.vinyl.artist.name }}</p>
+                    <small class="text-secondary">{{ item.quantity }} × {{ item.vinyl.price }}₴</small>
+                </div>
+            </div>
+            <div>
+                <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-outline-danger btn-sm">Видалити</a>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <h4 class="text-light">Сума: <strong>{{ total }}₴</strong></h4>
+            <a href="{% url 'checkout' %}" class="btn btn-success px-4 py-2">Оформити замовлення</a>
+        </div>
+
+    {% else %}
+        <div class="alert alert-info">Ваш кошик порожній.</div>
+    {% endif %}
+
+    <div class="container mt-5">
+        <h3 class="mb-4 text-light">Можливо, вам сподобається:</h3>
+        <div class="row">
+            {% for vinyl in recommended_vinyls %}
+            <div class="col-md-4 mb-4">
+                <a href="{{ vinyl.get_absolute_url }}" class="text-decoration-none text-light">
+                    <div class="card h-100 bg-dark text-light border-0 shadow-sm">
+                        <div class="position-relative">
+                            <img src="{{ vinyl.image.url }}" alt="{{ vinyl.title }}" class="card-img-top main-img" style="object-fit: cover; height: 300px;">
+                            {% if vinyl.hover_image %}
+                                <img src="{{ vinyl.hover_image.url }}" class="hover-img position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover;">
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ vinyl.title }}</h5>
+                            <p class="card-text">{{ vinyl.artist.name }}</p>
+                            <p><strong>{{ vinyl.price }}₴</strong></p>
+                        </div>
+                        <div class="card-footer border-0 bg-transparent">
+                            <a href="{% url 'add_to_cart' vinyl.id %}" class="btn btn-cart w-100">Додати в кошик</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

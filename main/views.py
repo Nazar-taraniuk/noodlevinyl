@@ -1,22 +1,32 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from main.models import Vinyl, Artist
 
-def home_view(request):
-    pages = [
-        {'url': 'page1', 'title': 'Сторінка 1'},
-        {'url': 'page2', 'title': 'Сторінка 2'},
-        {'url': 'page3', 'title': 'Сторінка 3'},
-        {'url': 'page4', 'title': 'Сторінка 4'},
-    ]
-    return render(request, 'main/home.html', {'title': 'Головна', 'pages': pages})
+def home(request):
+    artists = Artist.objects.all()
+    vinyls = Vinyl.objects.all()
+    context = {
+        'artists': artists,
+        'vinyls': vinyls,
+    }
+    return render(request, 'home.html', context=context)
 
-def page1_view(request):
-    return render(request, 'main/page.html', {'title': 'Сторінка 1'})
+def about(request):
+    return render(request, 'about.html', {'title': 'about us'})
 
-def page2_view(request):
-    return render(request, 'main/page.html', {'title': 'Сторінка 2'})
+def vinyl_detail(request, pk):
+    vinyl = get_object_or_404(Vinyl, pk=pk)
+    context = {
+        'vinyl': vinyl,
+        'title': vinyl.title,
+    }
+    return render(request, 'vinyl_detail.html', context=context)
 
-def page3_view(request):
-    return render(request, 'main/page.html', {'title': 'Сторінка 3'})
-
-def page4_view(request):
-    return render(request, 'main/page.html', {'title': 'Сторінка 4'})
+def artist_detail(request, pk):
+    artist = get_object_or_404(Artist, pk=pk)
+    vinyls = artist.vinyls.all()
+    artists = Artist.objects.all()
+    return render(request, 'artist_detail.html', {
+        'artist': artist,
+        'vinyls': vinyls,
+        'artists': artists,
+    })

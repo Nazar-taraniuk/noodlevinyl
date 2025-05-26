@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Головна — Вініловий Архів{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Ласкаво просимо до архіву вінілової музики</h2>
+<div class="row">
+    {% for vinyl in vinyls %}
+        {% include 'vinyl_card.html' %}
+    {% empty %}
+        <p>Немає доступних платівок.</p>
+    {% endfor %}
+</div>
+{% endblock %}

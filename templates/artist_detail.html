@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}{{ artist.name }} — Платівки{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Платівки виконавця: {{ artist.name }}</h2>
+<div class="row">
+    {% for vinyl in vinyls %}
+        {% include 'vinyl_card.html' %}
+    {% empty %}
+        <p>Немає платівок у цього виконавця.</p>
+    {% endfor %}
+</div>
+{% endblock %}

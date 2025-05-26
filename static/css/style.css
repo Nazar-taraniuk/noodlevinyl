@@ -1,0 +1,199 @@
+/* === БАЗОВИЙ СТИЛЬ === */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a0e0e; /* Темний фон */
+    color: #e0caca; /* Світлий текст */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+main.content {
+    flex: 1;
+}
+
+/* === НАВІГАЦІЯ === */
+.bg-maroon {
+    background: linear-gradient(to right, #2c0f0f, #702222);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+a.nav-link, .dropdown-item {
+    color: #f0f0f0 !important;
+    transition: color 0.3s ease;
+}
+
+a.nav-link:hover, .dropdown-item:hover {
+    color: #ff9999 !important;
+}
+
+/* === КНОПКИ === */
+.btn-maroon {
+    background-color: #751c1c;
+    color: white;
+    border: none;
+}
+
+.btn-maroon:hover {
+    background-color: #a83232;
+    color: white;
+}
+
+.btn-cart {
+    background-color: #8B0000;
+    color: white;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-cart:hover {
+    background-color: #a80000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.4);
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-success:hover {
+    background-color: #218838 !important;
+    color: white !important;
+}
+
+/* === КАРТКИ === */
+.card {
+    background-color: #2a0f0f;
+    border: 1px solid #000;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    color: #e0bcbc;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+    background-color: #450000;
+    color: #ffffff !important;
+}
+
+.card-title {
+    color: #ff6666;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+    transition: color 0.3s ease-in-out;
+}
+
+.card-text, .card a {
+    color: #d9aaaa;
+    text-decoration: none;
+}
+
+/* === КАРТКИ НА КОШИКУ === */
+body.cart-page .card {
+    background-color: #300000;
+    color: #fff;
+}
+
+body.cart-page .card:hover {
+    transform: translateY(-2px);
+    background-color: #3d0000;
+}
+
+body.cart-page .card-title {
+    color: #ffaaaa;
+}
+
+/* === ВІНІЛОВІ КАРТКИ === */
+.vinyl-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vinyl-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* === ЗОБРАЖЕННЯ === */
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    transition: opacity 0.4s ease-in-out;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-wrapper .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.image-wrapper:hover .hover-img {
+    opacity: 1;
+}
+
+.image-wrapper:hover .main-img {
+    opacity: 0;
+}
+
+/* Дублювання — на всяк випадок */
+.card:hover .hover-img {
+    opacity: 1;
+}
+
+.card:hover .main-img {
+    opacity: 0;
+}
+
+/* === ФОРМИ === */
+.form-control, .form-select {
+    background-color: #1b1b1b;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 8px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #990000;
+    box-shadow: 0 0 0 0.25rem rgba(153, 0, 0, 0.3);
+}
+
+/* === ФУТЕР === */
+footer {
+    background: linear-gradient(to right, #2c0f0f, #3a0d0d);
+    color: #ccc;
+    border-top: 1px solid #442222;
+    padding: 1rem 0;
+}
+
+footer p {
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+    color: #b8b8b8;
+}

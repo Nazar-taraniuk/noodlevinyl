@@ -4,23 +4,65 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="920fe498-4e8c-4a8b-9b19-1465a4aa74c6" name="Changes" comment="lab 2">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="920fe498-4e8c-4a8b-9b19-1465a4aa74c6" name="Changes" comment="lab 3">
+      <change afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/artist_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cart/cart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cart/checkout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cart/checkout_success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cart/orders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/create_vinyl_order.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/logged_out.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/my_orders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/orders/order_tracking.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/vinyl_card.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/vinyl_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0002_remove_vinyl_cover_url_vinyl_cover.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/media/Be_Here_Now.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/media/Morning_Glory.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/media/blood_sugar_sex_magik.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/media/by_the_way.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/media/californmication.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/media/definitaly_maybe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/media/im_with_you.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/media/the_getaway.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noodlevinyl/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/noodlevinyl/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noodlevinyl/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/noodlevinyl/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Python Script" />
         <option value="HTML File" />
       </list>
@@ -55,11 +97,15 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.DjangoProject.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -70,9 +116,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\pitonchik\DjangoProject\main\templates\main\media" />
+      <recent name="D:\pitonchik\DjangoProject\templates" />
+      <recent name="D:\pitonchik\DjangoProject" />
+      <recent name="D:\pitonchik\DjangoProject\noodlevinyl" />
       <recent name="D:\pitonchik\DjangoProject\main\templates\main" />
-      <recent name="D:\pitonchik\DjangoProject\main" />
+      <recent name="D:\pitonchik\DjangoProject\orders\templates" />
     </key>
   </component>
   <component name="RunManager">
@@ -83,6 +131,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="noodlevinyl.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -120,7 +169,27 @@
       <workItem from="1744648038772" duration="44000" />
       <workItem from="1744648108883" duration="4525000" />
       <workItem from="1744899339462" duration="6381000" />
-      <workItem from="1744910568306" duration="1156000" />
+      <workItem from="1744910568306" duration="1471000" />
+      <workItem from="1744931699815" duration="76000" />
+      <workItem from="1746716315641" duration="10540000" />
+      <workItem from="1746727019097" duration="1274000" />
+      <workItem from="1746731295359" duration="96000" />
+      <workItem from="1747331585510" duration="4910000" />
+      <workItem from="1747377717464" duration="4016000" />
+      <workItem from="1747387773797" duration="1360000" />
+      <workItem from="1747406871616" duration="6673000" />
+      <workItem from="1747430533150" duration="970000" />
+      <workItem from="1747490657375" duration="13972000" />
+      <workItem from="1747564501161" duration="3958000" />
+      <workItem from="1747570604756" duration="4256000" />
+      <workItem from="1747592318589" duration="259000" />
+      <workItem from="1747674385954" duration="297000" />
+      <workItem from="1747762466556" duration="7421000" />
+      <workItem from="1747943682241" duration="1776000" />
+      <workItem from="1747946403995" duration="2558000" />
+      <workItem from="1748084951290" duration="93000" />
+      <workItem from="1748272671485" duration="320000" />
+      <workItem from="1748273018398" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="lab 1">
       <option name="closed" value="true" />
@@ -146,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744649431693</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="lab 3">
+      <option name="closed" value="true" />
+      <created>1744912464470</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1744912464470</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +243,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lab 1" />
     <MESSAGE value="lab 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab 2" />
+    <MESSAGE value="lab 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab 3" />
   </component>
 </project>

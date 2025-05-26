@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Мої замовлення</h2>
+
+    {% if orders %}
+        {% for order in orders %}
+        <div class="card bg-dark text-light mb-4 border-light">
+            <div class="card-header d-flex justify-content-between">
+                <span>Замовлення #{{ order.id }}</span>
+                <span class="badge bg-{% if order.status == 'new' %}secondary
+                                      {% elif order.status == 'processing' %}primary
+                                      {% elif order.status == 'shipped' %}info
+                                      {% elif order.status == 'delivered' %}success
+                                      {% elif order.status == 'cancelled' %}danger
+                                      {% endif %}">
+                    {{ order.get_status_display }}
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Дата:</strong> {{ order.created_at|date:"d.m.Y H:i" }}</p>
+                        <p><strong>Сума:</strong> {{ order.total_price }} грн</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Статус:</strong> {{ order.get_status_display }}</p>
+                        <p><strong>Оплата:</strong> {{ order.get_payment_method_display }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info">
+            У вас поки що немає замовлень.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
